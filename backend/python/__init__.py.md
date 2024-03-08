@@ -101,3 +101,47 @@ mypackage.__dict__ = {
 
 * Namespaces map names to values (similar to dictionaries).
 * Explicit imports promote clarity and avoid namespace pollution.
+
+## Caveats
+
+You cannot do `from mypackage import datafunction` if you haven't explicitly imported `datafunctions` in `__init__.py` or haven't left `__init__.py` blank. Here's why:
+
+**1. Package Namespace and `__init__.py`:**
+
+* When you import a package (like `mypackage`), Python first checks its `__init__.py` file.
+* If `__init__.py` is blank (approach 1), it allows explicit imports of sub-modules like `math_functions` and `data_processing`.
+* If `__init__.py` has imports using `from . import *` (approach 2), it makes all functions/variables from sub-modules directly available in the package namespace.
+
+**2. Explicit Imports vs. Implicit Imports:**
+
+* In your case, you're using explicit imports by trying `from mypackage import datafunction`.
+* This approach relies on the sub-module (`data_processing`) being directly available in the package namespace.
+
+**Why it Fails:**
+
+* Since you haven't imported `data_processing` in `__init__.py` (either explicitly or with `*`), it's not part of the package namespace.
+* So, Python doesn't know about `datafunction` when you try `from mypackage import datafunction`.
+
+**Solutions:**
+
+1. **Import `data_processing` in `__init__.py`:**
+
+   ```python
+   # mypackage/__init__.py
+   from .data_processing import datafunction
+   ```
+
+   Now, `datafunction` becomes part of the package namespace, allowing `from mypackage import datafunction`.
+
+2. **Leave `__init__.py` blank and import explicitly:**
+
+   ```python
+   from mypackage import data_processing
+   data_processing.clean_data(data)  # Assuming clean_data is in data_processing
+   ```
+
+   This approach avoids modifying `__init__.py` but requires explicit import of the sub-module whenever you need functions from it.
+
+**Remember:**
+
+Explicit imports promote clarity and avoid namespace pollution. Use approach 1 (leaving `__init__.py` blank) or explicit imports in `__init__.py` for better organization.

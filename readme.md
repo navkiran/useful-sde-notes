@@ -13,4 +13,4 @@ This repository is a collection of my learnings and notes related to software de
 
 **Backend**
 - Python
-  - [__init\__.py](https://github.com/navkiran/useful-sde-notes/blob/master/backend/python/__init__.py)
+  - [__init\__.py](https://github.com/navkiran/useful-sde-notes/blob/master/backend/python/__init__.py.md)
