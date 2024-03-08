@@ -1,5 +1,6 @@
 ## Steps with Kubernetes yamls
 
+```
 my-app/
 ├── Dockerfile
 ├── deployment.yaml
@@ -8,7 +9,7 @@ my-app/
 │   ├── index.js
 │   ├── package.json
 │   └── ...
-
+```
 
 1. **Build Docker Image**
    - Create a `Dockerfile` for your application
