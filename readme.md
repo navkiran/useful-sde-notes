@@ -12,5 +12,7 @@ This repository is a collection of my learnings and notes related to software de
 ## Contents
 
 **Backend**
-- Python
-  - [__init\__.py](https://github.com/navkiran/useful-sde-notes/blob/master/backend/python/__init__.py.md)
+- [Python](https://github.com/navkiran/useful-sde-notes/blob/master/backend/python/)
+
+**Devops**
+- [Kubernetes](https://github.com/navkiran/useful-sde-notes/blob/master/devops/kubernetes/)
